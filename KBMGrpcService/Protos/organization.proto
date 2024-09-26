@@ -1,0 +1,69 @@
+syntax = "proto3";
+
+option csharp_namespace = "KBMGrpcService";
+
+package organization;
+
+message OrganizationResponseModel {
+    string id = 1;
+    string name = 2;
+    string address = 3;
+    string created_at = 4;
+    string updated_at = 5;
+}
+
+message CreateOrganizationRequestMessage {
+    string name = 1;
+    string address = 2;
+}
+
+message CreateOrganizationResponseMessage {
+    string id = 1;
+}
+
+message UpdateOrganizationRequestMessage {
+    string id = 1;
+    string name = 2;
+    string address = 3;
+}
+
+message UpdateOrganizationResponseMessage {
+    bool success = 1;
+}
+
+message DeleteOrganizationRequestMessage {
+    string id = 1;
+}
+
+message GetOrganizationByIdRequestMessage {
+    string id = 1;
+}
+
+message GetOrganizationResponseMessage {
+    OrganizationResponseModel organization = 1;
+}
+
+message SearchOrganizationsQueryMessage {
+    string query_text = 1;
+    int32 page = 2;
+    int32 page_size = 3;
+    bool order_by = 4;
+    int32 direction = 5;
+}
+
+message SearchOrganizationsResponseMessage {
+    repeated OrganizationResponseModel organizations = 1;
+    int32 quantity = 2;
+}
+
+service OrganizationCore {
+    rpc CreateOrganization(CreateOrganizationRequestMessage) returns (CreateOrganizationResponseMessage);
+    
+    rpc DeleteOrganization(DeleteOrganizationRequestMessage) returns (GetOrganizationResponseMessage);
+
+    rpc UpdateOrganization(UpdateOrganizationRequestMessage) returns (UpdateOrganizationResponseMessage);
+
+    rpc GetOrganizationById(GetOrganizationByIdRequestMessage) returns (GetOrganizationResponseMessage);
+    
+    rpc SearchOrganizations(SearchOrganizationsQueryMessage) returns (SearchOrganizationsResponseMessage);
+}

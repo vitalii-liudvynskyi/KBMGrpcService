@@ -1,0 +1,99 @@
+syntax = "proto3";
+
+option csharp_namespace = "KBMGrpcService";
+
+package user;
+
+service UserCore {
+  rpc CreateUser (CreateUserRequestMessage) returns (CreateUserResponseMessage);
+  rpc GetUserById (UserByIdRequestMessage) returns (UserResponseModel);
+  rpc SearchUsersByOrganization (SearchUsersByOrganizationRequestMessage) returns (SearchUsersResponseMessage);
+  rpc SearchUsers (SearchUsersRequestMessage) returns (SearchUsersResponseMessage);
+  rpc UpdateUser (UpdateUserRequestMessage) returns (UpdateUserResponseMessage);
+  rpc DeleteUser (DeleteUserRequestMessage) returns (DeleteUserResponseMessage);
+  rpc AddUserToOrganization (AddUserToOrganizationRequestMessage) returns (AddUserToOrganizationResponseMessage);
+  rpc RemoveUserFromOrganization (RemoveUserFromOrganizationRequestMessage) returns (RemoveUserFromOrganizationResponseMessage);
+}
+
+message CreateUserRequestMessage {
+  string name = 1;
+  string username = 2;
+  string email = 3;
+}
+
+message CreateUserResponseMessage {
+  string id = 1;
+}
+
+message UserByIdRequestMessage {
+  string id = 1;
+}
+
+message UserResponseModel {
+  string id = 1;
+  string name = 2;
+  string username = 3;
+  string email = 4;
+  string created_at = 5;
+  string updated_at = 6;
+  string organization_id = 7;  // Nullable
+}
+
+message SearchUsersByOrganizationRequestMessage {
+  string organization_id = 1;
+  string query_text = 2;
+  int32 page = 3;
+  int32 page_size = 4;
+  bool order_by = 5;
+  int32 direction = 6;
+}
+
+message SearchUsersRequestMessage {
+  string query_text = 1;
+  int32 page = 2;
+  int32 page_size = 3;
+  bool order_by = 4;
+  int32 direction = 5;
+}
+
+message SearchUsersResponseMessage {
+  repeated UserResponseModel users = 1;
+  int32 quantity = 2;
+}
+
+message UpdateUserRequestMessage {
+  string id = 1;
+  string name = 2;
+  string username = 3;
+  string email = 4;
+}
+
+message UpdateUserResponseMessage {
+  bool success = 1;
+}
+
+message DeleteUserRequestMessage {
+  string id = 1;
+}
+
+message DeleteUserResponseMessage {
+  UserResponseModel user = 1;
+}
+
+message AddUserToOrganizationRequestMessage {
+  string user_id = 1;
+  string organization_id = 2;
+}
+
+message AddUserToOrganizationResponseMessage {
+  bool success = 1;
+}
+
+message RemoveUserFromOrganizationRequestMessage {
+  string user_id = 1;
+  string organization_id = 2;
+}
+
+message RemoveUserFromOrganizationResponseMessage {
+  bool success = 1;
+}

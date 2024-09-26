@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35303.130
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KBM.GrpcService", "KBMGrpcService\KBM.GrpcService.csproj", "{39AF6466-6CF4-449F-9D24-C1A76F1E6840}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KBM.WebApi", "KBMHttpService\KBM.WebApi.csproj", "{A6BE66FF-9E95-4456-95EE-17D06820DF2B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{39AF6466-6CF4-449F-9D24-C1A76F1E6840}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39AF6466-6CF4-449F-9D24-C1A76F1E6840}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39AF6466-6CF4-449F-9D24-C1A76F1E6840}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39AF6466-6CF4-449F-9D24-C1A76F1E6840}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6BE66FF-9E95-4456-95EE-17D06820DF2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6BE66FF-9E95-4456-95EE-17D06820DF2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6BE66FF-9E95-4456-95EE-17D06820DF2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6BE66FF-9E95-4456-95EE-17D06820DF2B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {862E4FE8-87DC-481B-A610-1D782F7E5E8E}
+	EndGlobalSection
+EndGlobal
